@@ -13,6 +13,18 @@ import { View,
 * @function Register
 **/
 export const Register = ({navigation}) => {
+  const [name, setName] = useState();
+  const [email, setEmail] = useState();
+  const [phone, setPhone] = useState();
+  const [password, setPassword] = useState();
+const setValueLocally=()=>{
+      AsyncStorage.setItem('name', name);
+      AsyncStorage.setItem('email', email);
+      AsyncStorage.setItem('phone', phone);
+      AsyncStorage.setItem('password', password);
+      navigation.navigate("Login");
+      console.log("data saved");   
+    }
 
 const { container } = styles
  return(
@@ -24,7 +36,6 @@ const { container } = styles
   placeholder='First name'
   keyboardType='name-phone-pad'></TextInput>
   <TextInput style={styles.Login}
-  
   placeholder='Last name'
 
   ></TextInput>
@@ -77,6 +88,9 @@ const styles = StyleSheet.create({
        borderWidth:2,
   
        borderRadius:10
+
+
+
   
     },
     Text:{
