@@ -6,7 +6,10 @@ import { View,
        Image ,Touchable,
         TouchableOpacity, 
         Alert } from 'react-native'
-
+import React, { useState, useEffect } from 'react';
+import { StyleSheet, View, Text } from 'react-native';
+import AsyncStorage from "@react-native-async-storage/async-storage";
+        
 
 /**
 * @author
@@ -15,8 +18,26 @@ import { View,
 export const Profile = ({navigation}) => {
 
 const { container } = styles
- return(
-  
+
+    const [name, setName] = useState();
+    const [email, setEmail] = useState();
+    const [phone, setPhone] = useState();
+    const [password, setPassword] = useState();
+    const getValueLocally=()=>{
+        AsyncStorage.getItem("name")
+        .then((value)=>setName(value));
+        AsyncStorage.getItem("email")
+        .then((value)=>setEmail(value));
+        AsyncStorage.getItem("phone")
+        .then((value)=>setPhone(value));
+        AsyncStorage.getItem("password")
+        .then((value)=>setPassword(value));
+    }
+    useEffect(()=>{
+        getValueLocally()
+    },[])
+   
+return(
   <View style={container}>
     
   <Image style={{height:300,width:400,}} source={{uri:'https://1000logos.net/wp-content/uploads/2017/08/Color-Spotify-Logo.jpg'}}></Image>  
