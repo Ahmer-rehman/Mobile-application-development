@@ -51,14 +51,13 @@ return(
     <Text style={styles.Text}>           Log in</Text>
   </TouchableOpacity>
   <TouchableOpacity><Text style={styles.Text}>forget you password</Text></TouchableOpacity>
-  <Text style={styles.Text}>------------------   OR  ------------------</Text>
  
   <TouchableOpacity style={styles.button}
     
   onPress={() => navigation.navigate('Register')}>
     <Text style={styles.Text}>           Register</Text>
   </TouchableOpacity>
-  <Bottombar></Bottombar> 
+ 
   </View>
   )
 
