@@ -1,0 +1,166 @@
+**Problem 1: Print the kth Digit from Last**
+
+function getKthDigitFromLast(number, k) {
+  const numString = String(number);
+  if (k >= 1 && k <= numString.length) {
+    return numString[numString.length - k];
+  } else {
+    return "Invalid k";
+  }
+}
+
+const number = 23617;
+const k = 4;
+console.log(getKthDigitFromLast(number, k)); // Output: 3
+
+
+**Problem 2: Find Sum of All Digits**
+
+function sumOfDigits(number) {
+  const numString = String(number);
+  return numString.split("").reduce((acc, digit) => acc + parseInt(digit), 0);
+}
+
+const number = 23617;
+console.log(sumOfDigits(number)); // Output: 20
+
+
+**Problem 3: Find Sum of Even Digits**
+
+function sumOfEvenDigits(number) {
+  const numString = String(number);
+  return numString
+    .split("")
+    .map((digit) => parseInt(digit))
+    .filter((digit) => digit % 2 === 0)
+    .reduce((acc, digit) => acc + digit, 0);
+}
+
+const number = 23617;
+console.log(sumOfEvenDigits(number)); // Output: 8
+
+
+**Problem 4: Calculate Squares and Cubes**
+
+for (let i = 0; i <= 10; i++) {
+  console.log(`Number: ${i}, Square: ${i * i}, Cube: ${i * i * i}`);
+}
+
+
+**Problem 5: Left-Most Vowel and Reverse Digits**
+
+
+function findLeftMostVowelPosition(str) {
+  const vowels = "aeiouAEIOU";
+  for (let i = 0; i < str.length; i++) {
+    if (vowels.includes(str[i])) {
+      return i;
+    }
+  }
+  return -1; // No vowel found
+}
+
+function reverseDigits(number) {
+  const reversedString = String(number).split("").reverse().join("");
+  return parseInt(reversedString);
+}
+
+const inputString = "example";
+console.log("Left-Most Vowel Position:", findLeftMostVowelPosition(inputString)); // Output: 1 (e)
+const inputNumber = 12345;
+console.log("Reverse Digits:", reverseDigits(inputNumber)); // Output: 54321
+
+
+**Problem 6: Guess the Number Game**
+
+const randomNumber = Math.floor(Math.random() * 10) + 1; // Generates a random number between 1 and 10
+
+const userGuess = parseInt(prompt("Guess the number (between 1 and 10):"));
+
+if (userGuess === randomNumber) {
+  console.log("You WIN");
+} else {
+  console.log("Not matched. The correct number was " + randomNumber);
+}
+
+**Problem 7: Check for 10 in First or Last Position**
+
+function hasTenInFirstOrLast(arr) {
+  if (arr.length >= 2) {
+    return arr[0] === 10 || arr[arr.length - 1] === 10;
+  } else {
+    return false; // Array length must be >= 2
+  }
+}
+
+const numbers = [1, 2, 3, 4, 10];
+console.log(hasTenInFirstOrLast(numbers)); // Output: true
+
+
+**Problem 8: Sort Letters in Alphabetical Order
+function sortAlphabetically(str) {
+  return str.split('').sort().join('');
+}
+
+const inputString = 'comsats';
+const sortedString = sortAlphabetically(inputString);
+console.log(sortedString); // Output: 'acmost'
+
+
+**Problem 9: Find the kth Digit in a Number**
+function findKthDigit(number, k) {
+  const numString = String(number);
+  if (k >= 1 && k <= numString.length) {
+    return parseInt(numString[k - 1]);
+  } else {
+    return "Invalid k";
+  }
+}
+
+const number = 23617;
+const k = 4;
+console.log(findKthDigit(number, k)); // Output: 1
+
+**Problem 10: Check for Palindrome**
+
+function isPalindrome(str) {
+  const cleanStr = str.toLowerCase().replace(/[^a-zA-Z0-9]/g, "");
+  const reversedStr = cleanStr.split("").reverse().join("");
+  return cleanStr === reversedStr;
+}
+
+const inputString = "A man, a plan, a canal, Panama";
+console.log(isPalindrome(inputString)); // Output: true
+
+**Problem 11: Find the Longest Word in a Sentence**
+
+function findLongestWord(sentence) {
+  const words = sentence.split(" ");
+  let longestWord = "";
+  for (const word of words) {
+    if (word.length > longestWord.length) {
+      longestWord = word;
+    }
+  }
+  return longestWord;
+}
+
+const inputSentence = "The quick brown fox jumps over the lazy dog";
+console.log(findLongestWord(inputSentence)); // Output: "jumps"
+
+**Problem 12: Count the Occurrences of a Word in a Sentence**
+
+function countOccurrences(sentence, word) {
+  const words = sentence.split(" ");
+  let count = 0;
+  for (const w of words) {
+    if (w.toLowerCase() === word.toLowerCase()) {
+      count++;
+    }
+  }
+  return count;
+}
+
+const inputSentence = "The quick brown fox jumps over the lazy dog";
+const searchWord = "the";
+console.log(`Occurrences of "${searchWord}": ${countOccurrences(inputSentence, searchWord)}`); // Output: 2
